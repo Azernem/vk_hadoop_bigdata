@@ -19,3 +19,8 @@ CMD ["/run.sh"]
 COPY core-site.xml $HADOOP_CONF_DIR/core-site.xml
 COPY yarn-site.xml $HADOOP_CONF_DIR/yarn-site.xml
 COPY mapred-site.xml $HADOOP_CONF_DIR/mapred-site.xml
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
